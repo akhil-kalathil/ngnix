@@ -1,0 +1,20 @@
+---
+
+        - name: "apt-update"
+          apt:
+                  update_cache: yes
+        - name: "instal nginx"
+          apt:
+                  name: nginx
+                  state: latest
+        - name: copy static web page template
+          template:
+                  src: index.html
+                  dest: /var/www/html/index.html
+
+        - name: start nginx
+          service:
+                  name: nginx
+                  state: started
+
+
